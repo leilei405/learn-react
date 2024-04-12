@@ -1,5 +1,3 @@
-# 系统学习React
-
 ## 文件解析
 
 ### index.tsx
@@ -40,4 +38,3 @@ root.render(
 // 或者发送到一个分析端点。了解更多信息：https://bit.ly/CRA-vitals
 reportWebVitals();
 ```
-
