@@ -1,4 +1,5 @@
 import React from "react";
+// React Hooks 学习
 // import StateCom from "./testHooks/state";
 // import EffectCom from "./testHooks/effect";
 // import ReducerCom from "./testHooks/reducer";
@@ -12,7 +13,11 @@ import React from "react";
 // import MemoCom2 from "./testHooks/memo2";
 // import MemoComChange from "./testHooks/memoChange";
 // import CallbackCom from "./testHooks/callback";
-import MemoCom from "./testHooks/memohooks";
+// import MemoCom from "./testHooks/memohooks";
+
+// Hook 的闭包陷阱
+// import HookTrap1 from "./HooksClosure/case1";
+import HookTrap3 from "./HooksClosure/case3";
 function App() {
   return (
     <div className="App">
@@ -55,8 +60,14 @@ function App() {
       {/* <h1>useCallback</h1>
       <CallbackCom />
       <hr /> */}
-      <h1>useMemo</h1>
+      {/* <h1>useMemo</h1>
       <MemoCom />
+      <hr /> */}
+      {/* <h1>HookTrap1</h1>
+      <HookTrap1 />
+      <hr /> */}
+      <h1>HookTrap3</h1>
+      <HookTrap3 />
       <hr />
     </div>
   );
