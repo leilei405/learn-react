@@ -17,58 +17,34 @@ import React from "react";
 
 // Hook 的闭包陷阱
 // import HookTrap1 from "./HooksClosure/case1";
-import HookTrap3 from "./HooksClosure/case3";
+// import HookTrap3 from "./HooksClosure/case3";
+
+// React 中如何写TS类型
+// import TypePropsCom1 from "./learn-type/typeProps1";
+// import TypePropsCom2 from "./learn-type/hooksProps";
+import ImperativeHandleCom from "./learn-type/imperativeHandle";
 function App() {
   return (
     <div className="App">
-      {/* <h1>useState</h1>
-      <StateCom />
-      <hr /> */}
-      {/* <h1>useEffect</h1>
-      <EffectCom />
-      <hr /> */}
-      {/* <h1>useReducer</h1>
-      <ReducerCom />
-      <hr /> */}
-      {/* <h1>useReducer-no-use-Immer</h1>
-      <NoUseReduceImmerCom />
-      <hr /> */}
-      {/* <h1>useReducer-use-Immer</h1>
-      <UseReducerImmerCom />
-      <hr /> */}
-      {/* <h1>useRef</h1>
-      <RefCom />
-      <hr /> */}
-      {/* <h1>forwardRef</h1>
-      <ForwardRefCom />
-      <hr /> */}
-      {/* <h1>useImperativeHandle</h1>
+      {/* <StateCom /> */}
+      {/* <EffectCom /> */}
+      {/* <ReducerCom /> */}
+      {/* <NoUseReduceImmerCom /> */}
+      {/* <UseReducerImmerCom /> */}
+      {/* <RefCom /> */}
+      {/* <ForwardRefCom /> */}
+      {/* <ImperativeHandleCom /> */}
+      {/* <ContextCom /> */}
+      {/* <MemoCom1 /> */}
+      {/* <MemoCom2 /> */}
+      {/* <MemoComChange /> */}
+      {/* <CallbackCom /> */}
+      {/* <MemoCom /> */}
+      {/* <HookTrap1 /> */}
+      {/* <HookTrap3 /> */}
+      {/* <TypePropsCom1 /> */}
+      {/* <TypePropsCom2 /> */}
       <ImperativeHandleCom />
-      <hr /> */}
-      {/* <h1>useContext</h1>
-      <ContextCom />
-      <hr /> */}
-      {/* <h1>memo1</h1>
-      <MemoCom1 />
-      <hr /> */}
-      {/* <h1>memo2</h1>
-      <MemoCom2 />
-      <hr /> */}
-      {/* <h1>memo3</h1>
-      <MemoComChange />
-      <hr /> */}
-      {/* <h1>useCallback</h1>
-      <CallbackCom />
-      <hr /> */}
-      {/* <h1>useMemo</h1>
-      <MemoCom />
-      <hr /> */}
-      {/* <h1>HookTrap1</h1>
-      <HookTrap1 />
-      <hr /> */}
-      <h1>HookTrap3</h1>
-      <HookTrap3 />
-      <hr />
     </div>
   );
 }

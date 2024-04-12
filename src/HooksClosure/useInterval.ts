@@ -34,7 +34,9 @@ export const useInterval = (fn: Function, time: number) => {
         }
 
         // 返回一个函数，用于在组件卸载或更新时清除定时器
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         return clean;
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // 返回清除定时器的函数，以便在需要时停止定时器的执行

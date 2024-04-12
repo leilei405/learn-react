@@ -19,6 +19,7 @@ function App() {
       // 第三种方式解决 count 做为依赖项
     }, 1000);
     // 依赖数组为空，表示副作用操作只会在组件挂载时执行一次。
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // 组件的渲染部分，返回一个包含count值的div元素。

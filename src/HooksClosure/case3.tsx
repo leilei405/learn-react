@@ -1,4 +1,5 @@
-import { useEffect, useState, useRef, useLayoutEffect } from "react";
+// import { useEffect, useState, useRef, useLayoutEffect } from "react";
+import { useState } from "react";
 import { useInterval } from "./useInterval";
 function App() {
   const [count, setCount] = useState(0);
