@@ -22,7 +22,8 @@ import React from "react";
 // React 中如何写TS类型
 // import TypePropsCom1 from "./learn-type/typeProps1";
 // import TypePropsCom2 from "./learn-type/hooksProps";
-import ImperativeHandleCom from "./learn-type/imperativeHandle";
+// import ImperativeHandleCom from "./learn-type/imperativeHandle";
+import LaunchCom from "./launchTest/launch";
 function App() {
   return (
     <div className="App">
@@ -44,7 +45,8 @@ function App() {
       {/* <HookTrap3 /> */}
       {/* <TypePropsCom1 /> */}
       {/* <TypePropsCom2 /> */}
-      <ImperativeHandleCom />
+      {/* <ImperativeHandleCom /> */}
+      <LaunchCom />
     </div>
   );
 }
