@@ -23,7 +23,15 @@ import React from "react";
 // import TypePropsCom1 from "./learn-type/typeProps1";
 // import TypePropsCom2 from "./learn-type/hooksProps";
 // import ImperativeHandleCom from "./learn-type/imperativeHandle";
-import LaunchCom from "./launchTest/launch";
+
+// 组件断点测试
+// import LaunchCom from "./launchTest/launch";
+
+// 日期Api测试
+// import Test1Com from "./TestApi/Date";
+
+// 组件开发
+import CalendarDate from "./components/CalendarDate";
 function App() {
   return (
     <div className="App">
@@ -46,7 +54,9 @@ function App() {
       {/* <TypePropsCom1 /> */}
       {/* <TypePropsCom2 /> */}
       {/* <ImperativeHandleCom /> */}
-      <LaunchCom />
+      {/* <LaunchCom /> */}
+      {/* <Test1Com /> */}
+      <CalendarDate />
     </div>
   );
 }
