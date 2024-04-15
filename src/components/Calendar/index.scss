@@ -1,0 +1,88 @@
+// 日历部分
+.calendar {
+    width: 100%;
+}
+
+.calendar-month {
+    &-week-list {
+        display: flex;
+        padding: 0;
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: 1px solid #ccc;
+
+        &-item {
+            padding: 20px 16px;
+            text-align: left;
+            color: #7d7d7f;
+            flex: 1;
+        }
+    }
+    &-body {
+        &-row {
+            height: 100px;
+            display: flex;
+        }
+        &-cell {
+            flex: 1;
+            border: 1px solid #eee;
+            padding: 10px;
+            color: #ccc;
+            &-current {
+                color: black;
+            }
+        }
+    
+    }
+    
+}
+
+
+// 头部
+.calendar-header {
+    // 内容区域
+    &-left {
+        display: flex;
+        align-items: center;
+        height: 28px;
+        line-height: 28px;
+    }
+
+    // 日期
+    &-value {
+        font-size: 20px;
+    }
+
+    // 今天 
+    &-btn {
+        background: #eee;
+        cursor: pointer;
+        border: 0;
+        padding: 0 15px;
+        line-height: 28px;
+
+        &:hover {
+            background: #ccc;
+        }
+    }
+  
+    // 左右箭头
+    &-icon {
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 12px;
+        user-select: none;
+        cursor: pointer;
+        margin-right: 12px;
+        &:not(:first-child) {
+            margin: 0 12px;
+        }
+
+        &:hover {
+            background: #ccc;
+        }
+    }
+}

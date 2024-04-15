@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 // React Hooks 学习
 // import StateCom from "./testHooks/state";
 // import EffectCom from "./testHooks/effect";
@@ -31,17 +31,13 @@ import React, { useEffect, useRef } from "react";
 // import Test1Com from "./TestApi/Date";
 
 // 组件开发
-import CalendarDate, { CalendarRef } from "./components/CalendarDate";
+// 日期第一版
+// import CalendarDate from "./components/CalendarDate1";
+// 日期第二版
+import Calendar from "./components/Calendar";
+import dayjs from "dayjs";
+
 function App() {
-  const calendarRef = useRef<CalendarRef>(null);
-  useEffect(() => {
-    console.log(calendarRef.current?.getDate().toLocaleDateString());
-
-    setTimeout(() => {
-      calendarRef.current?.setDate(new Date(2024, 3, 1));
-    }, 3000);
-  }, []);
-
   return (
     <div className="App">
       {/* <StateCom /> */}
@@ -65,19 +61,8 @@ function App() {
       {/* <ImperativeHandleCom /> */}
       {/* <LaunchCom /> */}
       {/* <Test1Com /> */}
-      <CalendarDate
-        value={new Date("2023-3-1")}
-        onChange={(date: Date) => {
-          alert(date.toLocaleDateString());
-        }}
-      />
-      <CalendarDate
-        ref={calendarRef}
-        value={new Date("2023-8-1")}
-        onChange={(date: Date) => {
-          alert(date.toLocaleDateString());
-        }}
-      />
+      {/* <CalendarDate /> */}
+      <Calendar value={dayjs("2023-11-8")} />
     </div>
   );
 }
