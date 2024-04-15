@@ -9,7 +9,7 @@ interface DayInfoProps {
 
 function getAllDays(date: Dayjs) {
   // 获取当月天数
-  const daysInMonth = date.daysInMonth();
+  // const daysInMonth = date.daysInMonth();
   // 获取当月第一天的星期
   const startDate = date.startOf("month");
   // 获取当月第一天的星期
