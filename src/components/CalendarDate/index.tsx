@@ -1,11 +1,36 @@
-import React, { useState } from "react";
+import React, { useImperativeHandle, useState } from "react";
 import { monthNames } from "./data";
 import "./index.css";
 
-function Calendar() {
-  const [date, setDate] = useState(new Date());
-  console.log(date, "===date===");
-  console.log(5 * 4);
+// 日历组件props类型
+interface CalendarProps {
+  value?: Date;
+  onChange?: (date: Date) => void;
+}
+
+// 提供ref来暴露一些Calendar组件的api
+export interface CalendarRef {
+  getDate: () => Date;
+  setDate: (date: Date) => void;
+}
+
+const InternalCalendar: React.ForwardRefRenderFunction<
+  CalendarRef,
+  CalendarProps
+> = (props, ref) => {
+  const { value = new Date(), onChange } = props;
+  const [date, setDate] = useState(value);
+
+  useImperativeHandle(ref, () => {
+    return {
+      getDate() {
+        return date;
+      },
+      setDate(date: Date) {
+        setDate(date);
+      },
+    };
+  });
 
   // 点击回到上个月
   const handlePrevMonth = () => {
@@ -47,7 +72,10 @@ function Calendar() {
     // 首先定义个数组，来存储渲染的内容
     const days = [];
 
+    // 这个月有多少天
     const daysCount = daysOfMonth(date.getFullYear(), date.getMonth());
+
+    // 这个月第一天是星期几
     const firstDay = firstDayOfMonth(date.getFullYear(), date.getMonth());
 
     for (let i = 0; i < firstDay; i++) {
@@ -55,11 +83,25 @@ function Calendar() {
     }
 
     for (let i = 1; i <= daysCount; i++) {
-      days.push(
-        <div key={i} className="day">
-          {i}
-        </div>
+      // 点击day的时候，调用bind了对应日期的onChange函数
+      const clickHandler = onChange?.bind(
+        null,
+        new Date(date.getFullYear(), date.getMonth(), i)
       );
+
+      if (i === date.getDate()) {
+        days.push(
+          <div key={i} onClick={clickHandler} className="day selected">
+            {i}
+          </div>
+        );
+      } else {
+        days.push(
+          <div key={i} onClick={clickHandler} className="day">
+            {i}
+          </div>
+        );
+      }
     }
 
     return days;
@@ -86,6 +128,7 @@ function Calendar() {
       </div>
     </div>
   );
-}
+};
 
+const Calendar = React.forwardRef(InternalCalendar);
 export default Calendar;
