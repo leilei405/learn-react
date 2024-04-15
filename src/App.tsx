@@ -1,4 +1,5 @@
 import React from "react";
+import dayjs from "dayjs";
 // React Hooks 学习
 // import StateCom from "./testHooks/state";
 // import EffectCom from "./testHooks/effect";
@@ -35,7 +36,6 @@ import React from "react";
 // import CalendarDate from "./components/CalendarDate1";
 // 日期第二版
 import Calendar from "./components/Calendar";
-import dayjs from "dayjs";
 
 function App() {
   return (
@@ -62,7 +62,28 @@ function App() {
       {/* <LaunchCom /> */}
       {/* <Test1Com /> */}
       {/* <CalendarDate /> */}
-      <Calendar value={dayjs("2023-11-8")} />
+      <Calendar
+        value={dayjs("2023-11-8")}
+        locale="en-US"
+        // dateRender={(value) => {
+        //   return (
+        //     <div>
+        //       <p style={{ background: "yellowgreen", height: "300px" }}>
+        //         {value.format("YYYY/MM/DD")}
+        //       </p>
+        //     </div>
+        //   );
+        // }}
+        // dateInnerContent={(value) => {
+        //   return (
+        //     <div>
+        //       <p style={{ background: "yellowgreen", height: "30px" }}>
+        //         {value.format("YYYY/MM/DD")}
+        //       </p>
+        //     </div>
+        //   );
+        // }}
+      />
     </div>
   );
 }
