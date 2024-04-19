@@ -3,7 +3,7 @@ import dayjs, { Dayjs } from "dayjs";
 import csn from "classnames";
 import MonthCalendar from "./MonthCalendar";
 import CalendarHeader from "./CalendarHeader";
-import LocaleContext from "../../Context/localeContext";
+import LocaleContext from "./Context/localeContext";
 import "./index.scss";
 
 export interface CalendarProps {
@@ -26,15 +26,7 @@ export interface CalendarProps {
 }
 
 const Calendar: FC<CalendarProps> = (props) => {
-  const {
-    className,
-    style,
-    locale,
-    value,
-    onChange,
-    dateInnerContent,
-    dateRender,
-  } = props;
+  const { className, style, locale, value, onChange } = props;
   const classNames = csn("calendar", className);
   const [curValue, setCurValue] = useState<Dayjs>(value);
   const [curMonth, setCurMonth] = useState<Dayjs>(value);
@@ -48,8 +40,6 @@ const Calendar: FC<CalendarProps> = (props) => {
 
   // 点击日期单元格
   function selectHandler(date: Dayjs) {
-    // setCurValue(date);
-    // onChange?.(date);
     changeDate(date);
   }
 
@@ -69,9 +59,6 @@ const Calendar: FC<CalendarProps> = (props) => {
   function todayHandler() {
     const date = dayjs(Date.now());
     changeDate(date);
-    // setCurValue(date);
-    // setCurMonth(date);
-    // onChange?.(date);
   }
 
   return (

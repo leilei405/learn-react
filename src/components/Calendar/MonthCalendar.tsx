@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { Dayjs } from "dayjs";
 import { CalendarProps } from ".";
 import csn from "classnames";
-import LocaleContext from "../../Context/localeContext";
-import allLocales from "../../locale";
+import LocaleContext from "./Context/localeContext";
+import allLocales from "./locale";
 
 interface MonthCalendarProps extends CalendarProps {
   selectHandler?: (date: Dayjs) => void;

@@ -37,6 +37,8 @@ import dayjs from "dayjs";
 // 日期第二版
 import Calendar from "./components/Calendar";
 
+// import ManageUserList from "./TestApi/manage1";
+
 function App() {
   return (
     <div className="App">
@@ -84,6 +86,7 @@ function App() {
         //   );
         // }}
       />
+      {/* <ManageUserList /> */}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { FC, useContext } from "react";
 import { Dayjs } from "dayjs";
-import allLocales from "../../locale";
-import context from "../../Context/localeContext";
+import allLocales from "./locale";
+import context from "./Context/localeContext";
 
 interface CalendarHeaderProps {
   curMonth: Dayjs;
