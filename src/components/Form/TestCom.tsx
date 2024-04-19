@@ -11,14 +11,8 @@ const Basic: React.FC = () => {
   };
 
   return (
-    <Form
-      initialValues={{ remember: true, username: "神说要有光" }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
+    <Form onFinish={onFinish} onFinishFailed={onFinishFailed}>
       <Form.Item
-        style={{ display: "flex" }}
-        label="Username："
         name="username"
         rules={[
           { required: true, message: "请输入用户名!" },
@@ -29,8 +23,6 @@ const Basic: React.FC = () => {
       </Form.Item>
 
       <Form.Item
-        style={{ display: "flex" }}
-        label="Password："
         name="password"
         rules={[{ required: true, message: "请输入密码!" }]}
       >
