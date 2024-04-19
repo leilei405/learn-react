@@ -36,9 +36,8 @@ import dayjs from "dayjs";
 // import CalendarDate from "./components/CalendarDate1";
 // 日期第二版
 import Calendar from "./components/Calendar";
-
 // import ManageUserList from "./TestApi/manage1";
-
+import TestComPonent from "./components/Form/TestCom";
 function App() {
   return (
     <div className="App">
@@ -64,7 +63,7 @@ function App() {
       {/* <LaunchCom /> */}
       {/* <Test1Com /> */}
       {/* <CalendarDate /> */}
-      <Calendar
+      {/* <Calendar
         value={dayjs("2023-11-8")}
         locale="en-US"
         // dateRender={(value) => {
@@ -85,8 +84,10 @@ function App() {
         //     </div>
         //   );
         // }}
-      />
+      /> */}
       {/* <ManageUserList /> */}
+
+      <TestComPonent />
     </div>
   );
 }
