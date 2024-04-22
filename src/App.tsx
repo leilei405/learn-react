@@ -38,6 +38,8 @@ import dayjs from "dayjs";
 import Calendar from "./components/Calendar";
 // import ManageUserList from "./TestApi/manage1";
 import TestComPonent from "./components/Form/TestCom";
+
+import TestForm from "./TestApi/manage2";
 function App() {
   return (
     <div className="App">
@@ -87,7 +89,7 @@ function App() {
       /> */}
       {/* <ManageUserList /> */}
 
-      <TestComPonent />
+      <TestForm />
     </div>
   );
 }
