@@ -1,0 +1,38 @@
+.board {
+    display: flex;
+    justify-content: space-between;
+}
+
+.board .keywordNum {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex: 4;
+}
+
+
+.board .keywordNum button  {
+    width: 33.33%;
+    height:calc(30vh / 4);
+    border-radius: 0;
+    font-weight: 600;
+} 
+
+
+/* 删除 | 提现 */
+.board .action {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.action :nth-child(1) {
+    height: calc(30vh / 4);
+    border-radius: 0;
+}
+
+.action :nth-child(2) {
+    height: calc(30vh - 30vh / 4);
+    border-radius: 0;
+}

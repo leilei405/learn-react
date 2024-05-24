@@ -35,11 +35,14 @@ import dayjs from "dayjs";
 // 日期第一版
 // import CalendarDate from "./components/CalendarDate1";
 // 日期第二版
-import Calendar from "./components/Calendar";
+// import Calendar from "./components/Calendar";
 // import ManageUserList from "./TestApi/manage1";
-import TestComPonent from "./components/Form/TestCom";
+// import TestComPonent from "./components/Form/TestCom";
+// import { RequestCom } from "./TestApi/index3";
 
-import TestForm from "./TestApi/manage2";
+// import TestForm from "./TestApi/manage2";
+// import UserList from "./TestApi/register";
+import { HeartBeat } from "./TestApi/time";
 function App() {
   return (
     <div className="App">
@@ -89,7 +92,9 @@ function App() {
       /> */}
       {/* <ManageUserList /> */}
 
-      <TestForm />
+      {/* <TestForm /> */}
+      {/* <RequestCom /> */}
+      <HeartBeat />
     </div>
   );
 }
