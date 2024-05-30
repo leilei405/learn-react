@@ -14,3 +14,14 @@ export const HeartBeat = () => {
   });
   return <div>心跳组件</div>;
 };
+
+const obj1 = {
+  a: 2,
+  b: 1,
+};
+
+const obj2 = {
+  a: 2,
+  b: 1,
+};
+console.log(obj1.a == obj2.a);

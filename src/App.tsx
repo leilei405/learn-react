@@ -42,7 +42,7 @@ import dayjs from "dayjs";
 
 // import TestForm from "./TestApi/manage2";
 // import UserList from "./TestApi/register";
-import { HeartBeat } from "./TestApi/time/心跳组件";
+import { HeartBeat } from "./TestApi/time/Heart";
 function App() {
   return (
     <div className="App">
