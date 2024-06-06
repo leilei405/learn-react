@@ -42,7 +42,9 @@ import dayjs from "dayjs";
 
 // import TestForm from "./TestApi/manage2";
 // import UserList from "./TestApi/register";
-import { HeartBeat } from "./TestApi/time/Heart";
+// import { HeartBeat } from "./TestApi/time/Heart";
+import TagCom from "./TestApi/tag";
+import TagComs from "./TestApi/bishi";
 function App() {
   return (
     <div className="App">
@@ -94,7 +96,9 @@ function App() {
 
       {/* <TestForm /> */}
       {/* <RequestCom /> */}
-      <HeartBeat />
+      {/* <HeartBeat /> */}
+      {/* <TagCom /> */}
+      <TagComs />
     </div>
   );
 }
