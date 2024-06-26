@@ -1,36 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { Button, Space, Table, message, Popconfirm } from "antd";
-import UserManagementModal from "./UserManagementModal";
+import CustomCom from "./UserManagementModal";
 
-const App = () => {
-  const [users, setUsers] = useState([]);
+const UserListManage = () => {
+  const [userList, setUserList] = useState([]);
   const [visible, setVisible] = useState(false);
-  const [mode, setMode] = useState("");
+  const [title, setTitle] = useState("");
   const [userToEdit, setUserToEdit] = useState({});
 
   // 模拟异步请求
   const fetchUserData = async () => {
-    // 模拟网络延迟
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve([
           {
             id: 1,
-            name: "张三",
+            nickname: "张三",
             age: 25,
             phoneNumber: "13800138000",
             email: "zhangsan@example.com",
           },
           {
             id: 2,
-            name: "李四",
+            nickname: "李四",
             age: 30,
             phoneNumber: "13900139000",
             email: "lisi@example.com",
           },
           {
             id: 3,
-            name: "王五",
+            nickname: "王五",
             age: 28,
             phoneNumber: "13700137000",
             email: "wangwu@example.com",
@@ -42,15 +41,16 @@ const App = () => {
 
   useEffect(() => {
     fetchUserData().then((data) => {
-      setUsers(data);
+      setUserList(data);
     });
   }, []);
 
+  // table 表头
   const columns = [
     {
       title: "名字",
-      dataIndex: "name",
-      key: "name",
+      dataIndex: "nickname",
+      key: "nickname",
     },
     {
       title: "年龄",
@@ -72,7 +72,7 @@ const App = () => {
       key: "action",
       render: (_text, record) => (
         <Space>
-          <Button type="primary" onClick={() => showModal("edit", record)}>
+          <Button type="primary" onClick={() => handleBtn("edit", record)}>
             编辑
           </Button>
 
@@ -96,48 +96,49 @@ const App = () => {
     },
   ];
 
-  // 显示弹窗
-  const showModal = (mode, user = null) => {
-    setMode(mode);
-    setUserToEdit(user);
+  // 点击编辑注册显示弹窗
+  const handleBtn = (actionType, userData) => {
+    setTitle(actionType);
     setVisible(true);
+    actionType === "edit" && setUserToEdit(userData);
   };
 
   // 提交表单
-  const handleSubmit = (user) => {
-    if (mode === "register") {
-      setUsers([...users, { id: Date.now(), ...user }]);
+  const onSubmit = (user) => {
+    if (title === "register") {
+      setUserList([...userList, { id: Date.now(), ...user }]);
       message.success("注册成功");
-    } else if (mode === "edit") {
-      setUsers(
-        users.map((u) => (u.id === userToEdit.id ? { ...u, ...user } : u))
-      );
-      message.success("编辑成功");
+      setVisible(false);
+      return;
     }
+    setUserList(
+      userList.map((u) => (u.id === userToEdit.id ? { ...u, ...user } : u))
+    );
+    message.success("编辑成功");
     setVisible(false);
   };
 
   // 删除
   const handleDelete = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
+    setUserList(userList.filter((user) => user.id !== id));
   };
 
   return (
     <div>
       <h1>用户信息管理</h1>
-      <Button type="primary" onClick={() => showModal("register")}>
+      <Button type="primary" onClick={() => handleBtn("register")}>
         注册
       </Button>
-      <Table columns={columns} dataSource={users} rowKey="id" />
-      <UserManagementModal
+      <Table columns={columns} dataSource={userList} rowKey="id" />
+      <CustomCom
         visible={visible}
         onCancel={() => setVisible(false)}
-        mode={mode}
+        title={title}
         userToEdit={userToEdit}
-        onSubmit={handleSubmit}
+        onSubmit={onSubmit}
       />
     </div>
   );
 };
 
-export default App;
+export default UserListManage;

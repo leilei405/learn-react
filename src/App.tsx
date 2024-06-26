@@ -1,5 +1,6 @@
 import React from "react";
 import dayjs from "dayjs";
+
 // React Hooks 学习
 // import StateCom from "./testHooks/state";
 // import EffectCom from "./testHooks/effect";
@@ -43,11 +44,13 @@ import dayjs from "dayjs";
 // import TestForm from "./TestApi/manage2";
 // import UserList from "./TestApi/register";
 // import { HeartBeat } from "./TestApi/time/Heart";
-import TagCom from "./TestApi/tag";
-import TagComs from "./TestApi/bishi";
+// import TagCom from "./TestApi/tag";、
+import TagCom from "./TestApi/AIGC C";
+import TagCom1 from "./TestApi/manage4/1";
+import TagCom2 from "./TestApi/register";
 function App() {
   return (
-    <div className="App">
+    <div>
       {/* <StateCom /> */}
       {/* <EffectCom /> */}
       {/* <ReducerCom /> */}
@@ -98,7 +101,8 @@ function App() {
       {/* <RequestCom /> */}
       {/* <HeartBeat /> */}
       {/* <TagCom /> */}
-      <TagComs />
+
+      <TagCom2 />
     </div>
   );
 }

@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@formily/antd": "^2.3.1",
+    "@formily/react": "^2.3.1",
     "@storybook/jest": "^0.2.3",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -11,7 +13,7 @@
     "@types/node": "^16.18.96",
     "@types/react": "^18.2.75",
     "@types/react-dom": "^18.2.24",
-    "antd": "^5.16.2",
+    "antd": "^5.18.3",
     "antd-mobile": "^5.36.0",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
