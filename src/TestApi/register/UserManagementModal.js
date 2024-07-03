@@ -30,6 +30,8 @@ const CustomCom = (props) => {
   const { visible, onCancel, title, userToEdit, onSubmit } = props;
   const { countdown, startCountdown, resetCountdown } = useCountdown(5);
   const [form] = Form.useForm();
+  const register = title === "register";
+  const modalTitle = title === "edit" ? "编辑" : "注册";
 
   const onFinish = (values) => {
     onSubmit(values);
@@ -37,7 +39,7 @@ const CustomCom = (props) => {
   };
 
   useEffect(() => {
-    title === "edit" && form.setFieldsValue(userToEdit);
+    !register && form.setFieldsValue(userToEdit);
   }, [userToEdit, visible]);
 
   return (
@@ -47,7 +49,7 @@ const CustomCom = (props) => {
         form.resetFields();
         resetCountdown();
       }}
-      title={title === "edit" ? "编辑" : "注册"}
+      title={modalTitle}
       onCancel={onCancel}
       footer={null}
     >
@@ -60,7 +62,17 @@ const CustomCom = (props) => {
         <Form.Item
           label="昵称"
           name="nickname"
-          rules={[{ required: true, message: "请输入昵称" }]}
+          rules={[
+            { required: true, message: "请输入昵称" },
+            () => ({
+              validator(_, value) {
+                if (!/^[\u4e00-\u9fa5a-zA-Z0-9_$!]+$/.test(value)) {
+                  return Promise.reject("昵称只能包含中文大小写字母数字_$!");
+                }
+                return Promise.resolve();
+              },
+            }),
+          ]}
         >
           <Input placeholder="请输入昵称" />
         </Form.Item>
@@ -68,7 +80,20 @@ const CustomCom = (props) => {
         <Form.Item
           label="年龄"
           name="age"
-          rules={[{ required: true, message: "请输入年龄" }]}
+          rules={[
+            { required: true, message: "请输入年龄" },
+            () => ({
+              validator(_, value) {
+                if (!/^\d+$/.test(value)) {
+                  return Promise.reject("年龄不合法，请重新输入");
+                }
+                if (value < 1 || value > 130) {
+                  return Promise.reject("年龄需在1到130之间且为数字");
+                }
+                return Promise.resolve();
+              },
+            }),
+          ]}
         >
           <Input placeholder="请输入年龄" />
         </Form.Item>
@@ -87,16 +112,25 @@ const CustomCom = (props) => {
           <Input placeholder="请输入邮箱" />
         </Form.Item>
 
-        {title === "register" && (
+        {register && (
           <Form.Item
             label="密码"
             name="password"
             rules={[
               { required: true, message: "请输入密码" },
-              ({ getFieldValue }) => ({
+              () => ({
                 validator(_, value) {
-                  if (value && value.length < 6) {
-                    return Promise.reject("密码最少 6 位");
+                  if (
+                    !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[.@!$])[a-zA-Z0-9@!$]+$/.test(
+                      value
+                    )
+                  ) {
+                    return Promise.reject(
+                      "密码必须包含数字、大写字母、小写字母和@!$中的至少一个字符"
+                    );
+                  }
+                  if (value && value.length < 8) {
+                    return Promise.reject("密码最少 8 位");
                   }
                   return Promise.resolve();
                 },
@@ -107,7 +141,7 @@ const CustomCom = (props) => {
           </Form.Item>
         )}
 
-        {title === "register" && (
+        {register && (
           <Form.Item
             label="确认密码"
             name="confirmPassword"
@@ -130,14 +164,30 @@ const CustomCom = (props) => {
         <Form.Item
           label="电话号码"
           name="phoneNumber"
-          rules={[{ required: true, message: "请输入电话号码" }]}
+          rules={[
+            { required: true, message: "请输入电话号码" },
+            () => ({
+              validator(_, value) {
+                if (!/^1[3-9]\d{9}$/.test(value)) {
+                  return Promise.reject("请输入正确的手机号");
+                }
+                if (!/^\d+$/.test(value)) {
+                  return Promise.reject("手机号只能输入数字");
+                }
+                if (value.length > 11) {
+                  return Promise.reject("手机号最多 11 位");
+                }
+                return Promise.resolve();
+              },
+            }),
+          ]}
         >
-          {title === "edit" && (
+          {!register && (
             <Form.Item name="phoneNumber">
               <Input placeholder="请输入电话号码" />
             </Form.Item>
           )}
-          {title === "register" && (
+          {register && (
             <Space>
               <Input placeholder="请输入电话号码" />
               <Button type="primary" onClick={startCountdown}>
@@ -149,7 +199,7 @@ const CustomCom = (props) => {
           )}
         </Form.Item>
 
-        {title === "register" && (
+        {register && (
           <Form.Item
             label="验证码"
             name="sms"

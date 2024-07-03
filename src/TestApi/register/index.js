@@ -10,42 +10,45 @@ const UserListManage = () => {
 
   // 模拟异步请求
   const fetchUserData = async () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve([
-          {
-            id: 1,
-            nickname: "张三",
-            age: 25,
-            phoneNumber: "13800138000",
-            email: "zhangsan@example.com",
-          },
-          {
-            id: 2,
-            nickname: "李四",
-            age: 30,
-            phoneNumber: "13900139000",
-            email: "lisi@example.com",
-          },
-          {
-            id: 3,
-            nickname: "王五",
-            age: 28,
-            phoneNumber: "13700137000",
-            email: "wangwu@example.com",
-          },
-        ]);
-      }, 1000);
-    });
+    try {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve([
+            {
+              id: 1,
+              nickname: "张三",
+              age: 25,
+              phoneNumber: "13800138000",
+              email: "zhangsan@example.com",
+            },
+            {
+              id: 2,
+              nickname: "李四",
+              age: 30,
+              phoneNumber: "13900139000",
+              email: "lisi@example.com",
+            },
+            {
+              id: 3,
+              nickname: "王五",
+              age: 28,
+              phoneNumber: "13700137000",
+              email: "wangwu@example.com",
+            },
+          ]);
+        }, 1000);
+      });
+    } catch (error) {
+      message.error("获取用户数据时出错: " + error.message);
+    }
   };
 
   useEffect(() => {
     fetchUserData().then((data) => {
-      setUserList(data);
+      setUserList(data.reverse());
     });
   }, []);
 
-  // table 表头
   const columns = [
     {
       title: "名字",
@@ -96,7 +99,6 @@ const UserListManage = () => {
     },
   ];
 
-  // 点击编辑注册显示弹窗
   const handleBtn = (actionType, userData) => {
     setTitle(actionType);
     setVisible(true);
@@ -106,7 +108,7 @@ const UserListManage = () => {
   // 提交表单
   const onSubmit = (user) => {
     if (title === "register") {
-      setUserList([...userList, { id: Date.now(), ...user }]);
+      setUserList([{ id: Date.now(), ...user }, ...userList]);
       message.success("注册成功");
       setVisible(false);
       return;
