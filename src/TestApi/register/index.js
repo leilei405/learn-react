@@ -8,6 +8,18 @@ const UserListManage = () => {
   const [title, setTitle] = useState("");
   const [userToEdit, setUserToEdit] = useState({});
 
+  const countRef = useRef(null);
+  const [count, setCount] = useState(0);
+
+  const handClick = () => {
+    setCount(count + 1);
+    countRef.current = count;
+  };
+
+  useEffect(() => {
+    alert(count);
+  }, [count]);
+
   // 模拟异步请求
   const fetchUserData = async () => {
     try {
@@ -127,18 +139,7 @@ const UserListManage = () => {
 
   return (
     <div>
-      <h1>用户信息管理</h1>
-      <Button type="primary" onClick={() => handleBtn("register")}>
-        注册
-      </Button>
-      <Table columns={columns} dataSource={userList} rowKey="id" />
-      <CustomCom
-        visible={visible}
-        onCancel={() => setVisible(false)}
-        title={title}
-        userToEdit={userToEdit}
-        onSubmit={onSubmit}
-      />
+      <h1 onClick={handClick}>{count}</h1>
     </div>
   );
 };

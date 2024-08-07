@@ -64,8 +64,8 @@
 
 // // console.log(fn(nums));
 // // 测试输入
-// // const nums = [{ id: 8 }, { id: 1 }, { id: 2 }, { id: 2 }, { id: 3 }];
-// // 输出: [4, 0, 1, 1, 3]
+// const nums = [{ id: 8 }, { id: 1 }, { id: 2 }, { id: 2 }, { id: 3 }];
+// 输出: [4, 0, 1, 1, 3]
 // function countSmallerIds(arr) {
 //   const result = [];
 //   const ids = []; // 用于存储已经遍历过的id
@@ -93,13 +93,13 @@
 
 // // 调用函数并打印结果
 // console.log(countSmallerIds(nums)); // 输出: [4, 0, 1, 1, 3]
-// // 加载10个请求，请求地址已知，但是同时最多加载3个请求
-// // 每次有请求加载完后，自动加入新的请求 除了启动时，在未请求接口数量>=3之前，保持同时3个接口在请求
-// // 要求记录每个请求的返回状态(成功/失败)
-// // 要求用promise实现。
-// // 完整的请求示例:https://suggest.taobao.com/sug?code=utf-8&q=1
-// // const baseUrl =`https://suggest.taobao.com/sug?code=utf-8&g=`
-// // const urls = ['1', '2', '3', '4', '5', 6, '7', '8', '9', '10']
+// 加载10个请求，请求地址已知，但是同时最多加载3个请求
+// 每次有请求加载完后，自动加入新的请求 除了启动时，在未请求接口数量>=3之前，保持同时3个接口在请求
+// 要求记录每个请求的返回状态(成功/失败)
+// 要求用promise实现。
+// 完整的请求示例:https://suggest.taobao.com/sug?code=utf-8&q=1
+// const baseUrl =`https://suggest.taobao.com/sug?code=utf-8&g=`
+// const urls = ['1', '2', '3', '4', '5', 6, '7', '8', '9', '10']
 
 // let arr = [{ id: 8 }, { id: 5 }, { id: 2 }, { id: 2 }, { id: 6 }];
 
